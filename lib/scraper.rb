@@ -37,31 +37,38 @@ class Scraper
     
     html = open(profile_url)
     doc = Nokogiri::HTML(html)
-    # puts doc.css('.social-icon-container').text
-    bio = doc.css('.description-holder p').text
-    blog = "http://flatironschool.com"
-    profile_quote = doc.css('.profile-quote').text
-    # social_links = doc.css('.vitals-container a @href').text
+    
+    social_links = doc.css('.vitals-container a @href').text
     
     social_links = []
 
+      #if you dont do .text here you have to use it when you add it to the hash below ( e is still XML element, not a string) or you can use .to_str when adding using include => e.to_str.include? and then again when putting in hash (e.to_str)
+    
     doc.css('.social-icon-container a @href').each do |e|
-      social_links << e
+      social_links << e.text  
     end
     
-    # puts social_links[2]
+    hash = {}
     
-    
-      # hash = {}
-      social_links.each do |e|
-        e.include?("facebook.com")
-        puts e
-        # hash[:facebook] = e
+    social_links.each do |e|
+      if e.include?("twitter") 
+         hash[:twitter] = e
+      elsif e.include?("github") 
+         hash[:github] = e
+      elsif e.include?("linkedin") 
+         hash[:linkedin] = e
+      else
+          hash[:blog] = e
       end
-        
+    end
     
+    hash[:profile_quote] = doc.css('.profile-quote').text
+    hash[:bio] = doc.css('.description-holder p').text
+    
+    hash
+        
   end #scrape_profile_page
 
 end
 
-puts Scraper.scrape_profile_page('./fixtures/student-site/students/aaron-enser.html')
+# Scraper.scrape_profile_page('./fixtures/student-site/students/aaron-enser.html')
