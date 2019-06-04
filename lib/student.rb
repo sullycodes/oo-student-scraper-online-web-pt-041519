@@ -5,7 +5,11 @@ class Student
   @@all = []
 
   def initialize(student_hash)
-    
+    student_hash.each do |k,v|
+      if k == :name
+        :name =  v 
+      end
+    end
   end
 
   def self.create_from_collection(students_array)
