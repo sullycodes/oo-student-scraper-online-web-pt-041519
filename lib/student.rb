@@ -16,8 +16,11 @@ class Student
     end
   end
 
+    #array looks like => [ {name => "John Doe", location => "Boston, MA", profile_url => "students/johndoe.html"}, {etc....} ]
   def self.create_from_collection(students_array)
-    students_array.
+    students_array.each do |e|
+        student = Student.new(e)
+      end
   end
 
   def add_student_attributes(attributes_hash)
