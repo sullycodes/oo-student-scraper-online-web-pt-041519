@@ -60,6 +60,14 @@ class Scraper
       else
           hash[:blog] = e
       end
+    
+      # hash = {}
+      social_links.each do |e|
+        if e.include?("facebook.com")
+        puts e
+      end
+        # hash[:facebook] = e
+      end
     end
     
     hash[:profile_quote] = doc.css('.profile-quote').text
@@ -70,5 +78,3 @@ class Scraper
   end #scrape_profile_page
 
 end
-
-# Scraper.scrape_profile_page('./fixtures/student-site/students/aaron-enser.html')

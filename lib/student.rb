@@ -7,13 +7,17 @@ class Student
   def initialize(student_hash)
     student_hash.each do |k,v|
       if k == :name
-        :name =  v 
+        @name = v 
+      elsif 
+        k == :location
+        @location = v
       end
+      @@all << self
     end
   end
 
   def self.create_from_collection(students_array)
-    
+        
   end
 
   def add_student_attributes(attributes_hash)
@@ -23,5 +27,6 @@ class Student
   def self.all
     
   end
+
 end
 
