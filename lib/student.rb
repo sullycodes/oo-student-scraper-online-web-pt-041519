@@ -49,6 +49,7 @@ class Student
         k == :profile_url
         @profile_url = v
       end
+    end
   end
 
   def self.all
