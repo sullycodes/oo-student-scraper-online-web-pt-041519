@@ -33,6 +33,21 @@ class Student
       elsif 
         k == :linkedin
         @linkedin = v
+      elsif 
+        k == :github
+        @github = v
+      elsif 
+        k == :blog
+        @blog = v
+      elsif 
+        k == :profile_quote
+        @profile_quote = v
+      elsif 
+        k == :bio
+        @bio = v
+      elsif 
+        k == :profile_url
+        @profile_url = v
       end
   end
 
