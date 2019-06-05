@@ -22,7 +22,7 @@ class Student
         student = Student.new(e)
       end
   end
-
+    #hash looks like
   def add_student_attributes(attributes_hash)
     
   end
