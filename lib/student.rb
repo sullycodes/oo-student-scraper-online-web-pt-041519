@@ -22,9 +22,17 @@ class Student
         student = Student.new(e)
       end
   end
-    #hash looks like
-  def add_student_attributes(attributes_hash)
     
+    #hash looks like: {:twitter=>"http://twitter.com/flatironschool", :linkedin=>"https://www.linkedin.com/in/flatironschool", :github=>"https://github.com/learn-co, :blog=>"http://flatironschool.com", :profile_quote=>"\"Forget safety. Live where you fear to live. Destroy your reputation. Be notorious.\" - Rumi", :bio=> "I'm a school"}
+  
+  def add_student_attributes(attributes_hash)
+    attributes_hash.each do |k,v|
+      if k == :
+        @name = v 
+      elsif 
+        k == :location
+        @location = v
+      end
   end
 
   def self.all
